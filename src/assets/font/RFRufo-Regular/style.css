@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'RF Rufo';
+    src: local('RF Rufo Regular'), local('RF-Rufo-Regular'),
+        url('RFRufo-Regular.woff2') format('woff2'),
+        url('RFRufo-Regular.woff') format('woff'),
+        url('RFRufo-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }

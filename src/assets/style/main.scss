@@ -1,0 +1,178 @@
+@import "./variable";
+@import "./mixins";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: $white-color;
+    font-family: $main-font;
+}
+
+body {
+    background-color: $body-bg-color;
+}
+
+.container {
+    width: 100%;
+    max-width: 1430px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+// Navbar - start
+.navbar {
+    background-color: $navbar-bg-color;
+    padding: 5px 0;
+    .navbar__row {
+        width: 100%;
+        @include d-flex(center, space-between, row, unset);
+        
+        .navbar__logo {
+            @include d-flex(center, center, row, unset);
+
+            i {
+                margin: 0 8px 0 15px;
+                font-size: 22px;
+            }
+            .navbar__phone {
+                font-size: 18px;
+                text-decoration: none;
+            }
+        }
+        .navbar__assets {
+            position: relative;
+            @include d-flex(center, center, column, unset);
+            .navbar__icons {
+                @include d-flex(center, center, row, unset);
+                a, .border-white {
+                    @include d-flex(center, center, row, unset);
+                    font-size: 18px;
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                    transition: all 0.3s;
+                    text-decoration: none;
+                    &:hover {
+                        background-color: $white-color;
+                        color: $green-color;
+                        border: 2px solid transparent;
+                    }
+                }
+                .navbar__bars.active {
+                    &::before {
+                        content: "\f00d";
+                    }
+                }
+                .border-green {
+                    border: 2px solid $green-color;
+                }
+                .border-white {
+                    border: 2px solid $white-color;
+                }
+                a, span:not(:last-child) {
+                    margin: 0 20px 0 0;
+                }
+            }
+            .navbar__category {
+                width: 100%;
+                position: absolute;
+                right: 0;
+                padding: 15px 8px;
+                transform: translate(0, 62.5%);
+                background-color: #282828db;
+                // background-color: #fff;
+                display: none;
+                visibility: hidden;
+                z-index: 1;
+                &.active {
+                    display: block;
+                    visibility: visible;
+                }
+                &-row {
+                    @include d-flex(center, flex-start, row, unset);
+
+                    &:not(:last-child) {
+                        margin-bottom: 10px
+                    }
+                    a {
+                        text-decoration: none;
+                        i {
+                            @include d-flex(center, center, row, unset);
+                            width: 40px;
+                            height: 40px;
+                            font-size: 1.5rem;
+                            margin-right: 8px;
+                            color: $green-color;
+                            border-radius: 50%;
+                            border: 2px solid $white-color;
+                            transition: all 0.2s;
+                            &:hover {
+                                background-color: $white-color;
+                                border: 2px solid transparent;
+                            }
+                        }
+                    }
+                    .navbar__category-text {
+                        font-size: 1.5rem;
+                        font-weight: 400;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Navbar - end
+
+// Header - start
+.header {
+    width: 100%;
+    position: relative;
+    .header-row {
+        width: 100%;
+        @include d-flex(center, center, row, unset);
+        
+        .header-text {
+            width: 50%;
+            position: relative;
+            @include d-flex(flex-start, space-around, column, unset);
+            &-title {
+                font-size: 72px;
+                font-weight: 400;
+                margin: 100px 0;
+            }
+            img {
+                position: absolute;
+                top: 60%;
+                right: 0;
+            }
+            &-rows {
+                @include d-flex(center, center, row, unset);
+                margin-top: 100px;
+                .header-text-items {
+                    @include d-flex(flex-start, center, column, unset);
+                    &:not(:last-child) {
+                        margin-right: 50px;
+                    }
+                    &-num {
+                        font-size: 48px;
+                    }
+                    &-text {
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+        .header-img {
+            width: 50%;
+            img {
+                position: absolute;
+                right: 0;
+                top: 0;
+                clip-path: polygon(66% 0, 100% 0, 100% 26%, 80% 73%, 65% 68%, 56% 35%);
+            }
+        }
+    }
+}
+// Header - end
